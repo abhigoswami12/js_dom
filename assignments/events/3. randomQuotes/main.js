@@ -2,8 +2,6 @@ var quotes;
 
 // Write your code here
 
-
-
 quotes = [
     {
         "quoteAuthor": "Thomas Edison",
@@ -314,3 +312,54 @@ quotes = [
         "quoteText": "Great talent finds happiness in execution."
     }
 ];
+
+var div = document.querySelector('.quote');
+div.innerHTML = "Press SPACE for Quotes";
+div.style.fontSize = "24px";
+div.style.color = "#065535";
+div.style.textAlign = "center";
+div.style.border = "1px solid tomato";
+div.style.margin = "60px 0px";
+div.style.padding = "40px 0px";
+
+
+
+
+
+
+
+function changeQuote(e) {
+
+    if(e.keyCode == 32) {
+        div.innerHTML = "";
+        var result = generateRandomQuotes();
+        // var htmlContent = "";
+        // htmlContent += `<h1>${result.quoteAuthor}</h1>`
+        // htmlContent += `<h1>${result.quoteText}</h1>`;
+        // space.innerHTML += htmlContent;
+        var author = document.createElement("h1");
+        author.innerHTML = result.quoteAuthor;
+        author.style.fontSize = "32px";
+        author.style.color = "#6b7177";
+        var text = document.createElement('h2');
+        text.innerHTML = result.quoteText;
+        text.style.fontSize = "24px";
+        text.style.color = "#514845";
+        div.append(author);
+        author.append(text);
+
+    }
+}
+
+function generateRandomQuotes() {
+    var index =Math.floor(Math.random() * quotes.length - 1);
+    var generatedQuote = quotes[index];
+    return generatedQuote;
+}
+
+document.body.addEventListener('keypress', changeQuote);
+
+
+
+
+

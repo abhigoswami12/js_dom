@@ -1,0 +1,39 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Move Mouse Cursor</h1>
+        <p class="screenX">881</p>
+        <p class= "screenY">343</p>
+        <p class= "clientX">467</p>
+        <p class= "clientY">164</p>
+
+
+        <script>
+        
+        function getResult(event) {
+            // console.dir(event)
+            var screenX = document.querySelector('.screenX');
+            var screenY = document.querySelector('.screenY');
+            var clientX = document.querySelector('.clientX');
+            var clientY = document.querySelector('.clientY');
+
+            screenX.textContent = event.screenX
+            screenY.textContent = event.screenY
+            clientX.textContent = event.clientX
+            clientY.textContent = event.clientY
+
+
+        }
+
+
+        document.addEventListener('mousemove', getResult)
+        </script>
+
+    </body>
+    </html>
